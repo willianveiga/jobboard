@@ -1,0 +1,6 @@
+<h1>Remote Jobs</h1>
+<% @jobs.each do |job| %>
+  <h1><%= link_to job.title, job %></h1>
+  <h2><%= job.company.name %></h2>
+  <p><%= job.brief_description %></p>
+<% end %>
