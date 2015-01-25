@@ -8,7 +8,7 @@
 3.times do | i |
   company = Company.create(name: "Company ##{i + 1}", description: "Description ##{i + 1}", website: "http://website#{i + 1}.com")
   3.times do | j |
-    company.jobs << Job.new(title: "Job ##{j + 1}", description: "Description ##{j + 1}")
+    company.jobs << Job.new(title: "Job ##{j + 1}", brief_description: "A brief description ##{j + 1}.", description: "Description ##{j + 1}")
     company.save
   end
 end
