@@ -7,6 +7,11 @@ class JobsController < ApplicationController
     @jobs = Job.all
   end
 
+  def search
+    @jobs = Job.search_by_criteria params[:q]
+    render 'jobs/index'
+  end
+
   # GET /jobs/1
   # GET /jobs/1.json
   def show
