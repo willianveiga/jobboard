@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get '/jobs/:company_name/:company_id', to: 'jobs#by_company'
 
   resources :jobs
+
+  resources :companies, except: :index
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

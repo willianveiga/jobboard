@@ -1,0 +1,19 @@
+<%= form_for @company, url: {action: "create"} do |form| %>
+  <% if @company.errors.any? %>
+    <ul>
+    <% @company.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :brief_description %>
+  <%= form.text_field :brief_description, :placeholder => "Leading Rails Company" %>
+  <%= form.label :description %>
+  <%= form.text_area :description, :placeholder => "We are a product-focused company where software development ..." %>
+  <%= form.label :website %>
+  <%= form.text_field :website %>
+  <%= form.submit "Sign Up" %>
+<% end %>
