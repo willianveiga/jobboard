@@ -12,6 +12,12 @@ class JobsController < ApplicationController
     render 'jobs/index'
   end
 
+  def by_company
+    company = Company.find params[:company_id]
+    @jobs = company.jobs
+    render 'jobs/index'
+  end
+
   # GET /jobs/1
   # GET /jobs/1.json
   def show

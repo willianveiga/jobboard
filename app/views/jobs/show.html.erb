@@ -6,7 +6,7 @@
   <aside>
     <h1><%= link_to @job.company.name, @job.company.website %></h1>
     <p><%= @job.company.brief_description %></p>
-    <p><%= pluralize(@job.company.jobs.count, 'job') %></p>
+    <p><%= link_to(pluralize(@job.company.jobs.count, 'job'), "#{@job.company.name.parameterize}/#{@job.company.id}") %></p>
   </aside>
   <h1>Job Description</h1>
   <p><%= @job.description %></p>

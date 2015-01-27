@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get '/jobs/search', to: 'jobs#search'
+  get '/jobs/:company_name/:company_id', to: 'jobs#by_company'
+
   resources :jobs
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
