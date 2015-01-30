@@ -1,4 +1,4 @@
-<%= form_for @company, url: {action: "create"} do |form| %>
+<%= form_for @company, url: {action: "create"} do |company_form| %>
   <% if @company.errors.any? %>
     <ul>
     <% @company.errors.full_messages.each do |message| %>
@@ -7,13 +7,23 @@
     </ul>
   <% end %>
 
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <%= form.label :brief_description %>
-  <%= form.text_field :brief_description, :placeholder => "Leading Rails Company" %>
-  <%= form.label :description %>
-  <%= form.text_area :description, :placeholder => "We are a product-focused company where software development ..." %>
-  <%= form.label :website %>
-  <%= form.text_field :website %>
-  <%= form.submit "Sign Up" %>
+  <%= company_form.label :name %>
+  <%= company_form.text_field :name %>
+  <%= company_form.label :brief_description %>
+  <%= company_form.text_field :brief_description, :placeholder => "Leading Rails Company" %>
+  <%= company_form.label :description %>
+  <%= company_form.text_area :description, :placeholder => "We are a product-focused company where software development ..." %>
+  <%= company_form.label :website %>
+  <%= company_form.text_field :website %>
+
+  <%= company_form.fields_for :user do |user_form| %>
+    <%= user_form.label :username %>
+    <%= user_form.text_field :username %>
+    <%= user_form.label :password %>
+    <%= user_form.password_field :password %>
+    <%= user_form.label :password_confirmation %>
+    <%= user_form.password_field :password_confirmation %>
+  <% end %>
+
+  <%= company_form.submit "Sign Up" %>
 <% end %>
