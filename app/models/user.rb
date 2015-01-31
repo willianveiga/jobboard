@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   belongs_to :company
   before_create :generate_salt, :hash_password
 
-  def self.valid_credentials?(username, password)
+  def self.authenticate(username, password)
     user = self.find_by_username username
-    return false unless user
+    return unless user
     salted_password = BCrypt::Engine.hash_secret(password, user.salt)
-    salted_password == user.password
+    return user if salted_password == user.password
   end
 
   private
