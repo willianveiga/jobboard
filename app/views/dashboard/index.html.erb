@@ -1,1 +1,22 @@
 <h1>Dashboard</h1>
+<%= link_to "New Job", new_job_path %>
+<% if not @company.jobs.empty? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Created at</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @company.jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><%= job.created_at %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>You don't have any job.</p>
+<% end %>
