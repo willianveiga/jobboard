@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  get 'users/login'
+  post 'users/auth'
+  get 'users/logout'
+
   get '/jobs/search', to: 'jobs#search'
   get '/jobs/:company_name/:company_id', to: 'jobs#by_company'
 
   resources :jobs
 
-  resources :companies, except: :index
+  resources :companies
+
+  get 'dashboard', to: 'dashboard#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
