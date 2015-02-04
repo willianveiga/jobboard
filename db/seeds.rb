@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+3.times do | i |
+  company = Company.create(name: "Company ##{i + 1}", brief_description: "Brief description ##{i + 1}", description: "Description ##{i + 1}", website: "http://website#{i + 1}.com", active: true)
+  3.times do | j |
+    company.jobs << Job.new(title: "Job ##{j + 1}", brief_description: "Brief description ##{j + 1}", description: "Description ##{j + 1}", active: true)
+    company.save
+  end
+end
