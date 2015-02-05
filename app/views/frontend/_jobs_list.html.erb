@@ -1,0 +1,11 @@
+<% if @jobs.any? %>
+  <% @jobs.each do |job| %>
+    <article>
+      <p><%= job.title %></p>
+      <p><%= job.company.name %></p>
+      <p><%= job.brief_description %></p>
+    </article>
+  <% end %>
+<% else %>
+  <p>There is no open job position.</p>
+<% end %>
