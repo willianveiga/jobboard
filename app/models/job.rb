@@ -2,7 +2,7 @@ class Job < ActiveRecord::Base
   belongs_to :company
 
   searchable do
-    text :title, :description
+    text :title, :brief_description, :description
     text :company do
       company.name if company
     end
