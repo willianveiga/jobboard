@@ -8,10 +8,15 @@ class FrontendController < ApplicationController
   end
 
   def job
-    @job = Job.find_active params[:id]
-
+    begin
+      @job = Job.find_active params[:id]
     rescue ActiveRecord::RecordNotFound
       render_404
+    end
+
+    if params[:title] != @job.title.parameterize
+      redirect_to job_url(@job.id, @job.title.parameterize), :status => 303
+    end
   end
 
   private
