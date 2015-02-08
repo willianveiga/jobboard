@@ -18,7 +18,7 @@ class Job < ActiveRecord::Base
   end
 
   def self.find_all_active
-    select('jobs.title, jobs.brief_description, jobs.company_id')
+    select('jobs.id, jobs.title, jobs.brief_description, jobs.company_id')
       .joins(:company)
       .where('companies.active = ? AND jobs.active = ?', true, true)
   end
