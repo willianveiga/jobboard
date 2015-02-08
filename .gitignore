@@ -21,6 +21,7 @@
 *.swp
 *.swo
 *.swn
+*.swm
 
 # solr
 solr
