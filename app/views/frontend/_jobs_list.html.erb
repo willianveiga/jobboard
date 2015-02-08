@@ -1,7 +1,7 @@
 <% if @jobs.any? %>
   <% @jobs.each do |job| %>
     <article>
-      <p><%= job.title %></p>
+      <p><%= link_to job.title, job_path(job.id, job.title.parameterize) %></p>
       <p><%= job.company.name %></p>
       <p><%= job.brief_description %></p>
     </article>
