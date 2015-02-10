@@ -1,5 +1,5 @@
 <article>
   <p><%= @job.title %></p>
-  <p><%= @job.company.name %></p>
+  <p><%= link_to @job.company.name, company_path(@job.company.id, @job.company.name.parameterize) %></p>
   <p><%= @job.description %></p>
 </article>
