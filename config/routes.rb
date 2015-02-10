@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'search', to: 'frontend#search', as: :jobs_search_path
   get 'job/:id/:title', to: 'frontend#job', :id => /\d+/, as: :job
+  get 'company/:id/:name', to: 'frontend#company', :id => /\d+/, as: :company
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
