@@ -3,3 +3,10 @@
   <p><%= link_to @company.website, @company.website %></p>
   <p><%= @company.description %></p>
 </article>
+<article>
+  <p>Open Jobs</p>
+  <% @jobs.each do |job| %>
+    <p><%= link_to job.title, job_path(job.id, job.title.parameterize) %></p>
+    <p><%= job.brief_description %></p>
+  <% end %>
+</article>

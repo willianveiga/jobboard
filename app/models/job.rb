@@ -29,6 +29,11 @@ class Job < ActiveRecord::Base
       .find(id)
   end
 
+  def self.find_active_by_company_id(id)
+    where('companies.id = ? AND jobs.active = ? AND companies.active = ?', id, true, true)
+      .joins(:company)
+  end
+
   private
   def self.results_where_company_is_active(results)
     filtered_results = []

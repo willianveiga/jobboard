@@ -22,6 +22,7 @@ class FrontendController < ApplicationController
   def company
     begin
       @company = Company.find_active params[:id]
+      @jobs = Job.find_active_by_company_id @company.id
     rescue ActiveRecord::RecordNotFound
       render_404 and return
     end
