@@ -2,4 +2,5 @@
   <p><%= @job.title %></p>
   <p><%= link_to @job.company.name, company_path(@job.company.id, @job.company.name.parameterize) %></p>
   <p><%= @job.description %></p>
+  <p><%= @job.application_instructions %></p>
 </article>
