@@ -32,6 +32,13 @@ class FrontendController < ApplicationController
     end
   end
 
+  def signup
+    @user = User.new
+  end
+
+  def create_user
+  end
+
   private
   def render_404
     render file: "#{Rails.root}/public/404.html" , status: :not_found

@@ -1,0 +1,11 @@
+<%= form_for @user, url: create_user_path do |form| %>
+  <%= form.label :name, 'Username' %>
+  <%= form.text_field :name %>
+  <%= form.label :password_digest, 'Password' %>
+  <%= form.password_field :password_digest %>
+  <%= form.label :password_digest_confirmation, 'Password confirmation' %>
+  <%= form.password_field :password_digest_confirmation %>
+  <%= form.label :email %>
+  <%= form.text_field :email %>
+  <%= form.submit 'Sign Up' %>
+<% end %>

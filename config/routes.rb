@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'job/:id/:title', to: 'frontend#job', :id => /\d+/, as: :job
   get 'company/:id/:name', to: 'frontend#company', :id => /\d+/, as: :company
 
+  get 'signup', to: 'frontend#signup', as: :signup
+  post 'create_user', to: 'frontend#create_user', as: :create_user
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
