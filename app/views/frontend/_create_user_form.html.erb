@@ -7,5 +7,6 @@
   <%= form.password_field :password_digest_confirmation %>
   <%= form.label :email %>
   <%= form.text_field :email %>
+  <%= recaptcha_tags %>
   <%= form.submit 'Sign Up' %>
 <% end %>
