@@ -33,6 +33,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'sunspot_rails'
 
+gem 'bcrypt'
+gem 'bcrypt-ruby', '~> 3.0.0'
+
 gem 'recaptcha', :require => 'recaptcha/rails'
 
 group :development, :test do
