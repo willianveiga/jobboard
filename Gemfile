@@ -34,9 +34,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sunspot_rails'
 
 gem 'bcrypt'
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '3.1.2'
 
 gem 'recaptcha', :require => 'recaptcha/rails'
+
+gem 'validates_email_format_of'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
