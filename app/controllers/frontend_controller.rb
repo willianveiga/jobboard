@@ -43,6 +43,7 @@ class FrontendController < ApplicationController
       if !verify_recaptcha(model: @user, message: captcha_message) || !@user.save
         format.html { render :signup }
       else
+        UserMailer.activate_user(@user).deliver_later
         format.html { redirect_to :user_created }
       end
     end
