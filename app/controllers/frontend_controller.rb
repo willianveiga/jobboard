@@ -40,7 +40,7 @@ class FrontendController < ApplicationController
     @user = User.new user_params
     respond_to do |format|
       captcha_message = 'Incorrect CAPTCHA data. Please try again.'
-      if !verify_recaptcha(model: @user, message: captcha_message) || !@user.save
+      if !verify_recaptcha(model: @user, message: captcha_message) || !@user.save(context: :create)
         format.html { render :signup }
       else
         UserMailer.activate_user(@user).deliver_later
@@ -50,6 +50,15 @@ class FrontendController < ApplicationController
   end
 
   def user_created
+  end
+
+  def user_activate
+    begin
+      @user = User.activate params[:activation_code]
+      @success = true
+    rescue ActiveRecord::RecordNotFound
+      @success = false
+    end
   end
 
   private
