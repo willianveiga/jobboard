@@ -3,23 +3,23 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def create_user
+  def create
     @user = User.new user_params
     respond_to do |format|
       captcha_message = 'Incorrect CAPTCHA data. Please try again.'
       if !verify_recaptcha(model: @user, message: captcha_message) || !@user.save(context: :create)
         format.html { render :signup }
       else
-        UserMailer.activate_user(@user).deliver_later
+        UserMailer.activate(@user).deliver_later
         format.html { redirect_to :user_created }
       end
     end
   end
 
-  def user_created
+  def created
   end
 
-  def user_activate
+  def activate
     begin
       @user = User.activate params[:activation_code]
       @success = true
