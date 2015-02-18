@@ -32,9 +32,6 @@ class FrontendController < ApplicationController
     end
   end
 
-  def user_created
-  end
-
   def user_activate
     begin
       @user = User.activate params[:activation_code]

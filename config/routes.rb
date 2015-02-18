@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#signup', as: :signup
   post 'user/create', to: 'users#create_user', as: :create_user
-  get 'user/created', to: 'frontend#user_created', as: :user_created
+  get 'user/created', to: 'users#user_created', as: :user_created
   get 'user/activate/:activation_code', to: 'frontend#user_activate', as: :user_activate
 
   # The priority is based upon order of creation: first created -> highest priority.
