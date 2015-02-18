@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'company/:id/:name', to: 'frontend#company', :id => /\d+/, as: :company
 
   get 'signup', to: 'users#signup', as: :signup
-  post 'user/create', to: 'frontend#create_user', as: :create_user
+  post 'user/create', to: 'users#create_user', as: :create_user
   get 'user/created', to: 'frontend#user_created', as: :user_created
   get 'user/activate/:activation_code', to: 'frontend#user_activate', as: :user_activate
 
