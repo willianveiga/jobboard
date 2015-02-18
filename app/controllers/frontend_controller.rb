@@ -32,15 +32,6 @@ class FrontendController < ApplicationController
     end
   end
 
-  def user_activate
-    begin
-      @user = User.activate params[:activation_code]
-      @success = true
-    rescue ActiveRecord::RecordNotFound
-      @success = false
-    end
-  end
-
   private
   def render_404
     render file: "#{Rails.root}/public/404.html" , status: :not_found

@@ -19,6 +19,15 @@ class UsersController < ApplicationController
   def user_created
   end
 
+  def user_activate
+    begin
+      @user = User.activate params[:activation_code]
+      @success = true
+    rescue ActiveRecord::RecordNotFound
+      @success = false
+    end
+  end
+
   private
   def user_params
     params.require(:user)
