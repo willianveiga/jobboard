@@ -23,6 +23,13 @@ class UsersController < ApplicationController
   end
 
   def auth
+    user = User.auth params[:name], params[:password]
+    if user
+      session[:user_id] = user.id
+      redirect_to backend_path
+    else
+      redirect_to signin_path, notice: 'The username or password you entered is incorrect.'
+    end
   end
 
   def activate

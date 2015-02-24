@@ -1,6 +1,9 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 <%= form_tag user_auth_path, method: 'post' do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username, nil, autofocus: true %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name, nil, autofocus: true %>
   <%= label_tag :password %>
   <%= password_field_tag :password %>
   <%= submit_tag 'Login' %>
