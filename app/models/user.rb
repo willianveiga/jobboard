@@ -18,4 +18,10 @@ class User < ActiveRecord::Base
     user.save!
     user
   end
+
+  def self.auth(username, password)
+    user = self.find_by(active: true, name: username)
+    return unless user
+    user.authenticate(password)
+  end
 end
