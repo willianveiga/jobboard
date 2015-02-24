@@ -19,6 +19,12 @@ class UsersController < ApplicationController
   def created
   end
 
+  def signin
+  end
+
+  def auth
+  end
+
   def activate
     begin
       @user = User.activate params[:activation_code]
