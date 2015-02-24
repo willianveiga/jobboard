@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'user/create', to: 'users#create', as: :user_create
   get 'user/created', to: 'users#created', as: :user_created
   get 'user/activate/:activation_code', to: 'users#activate', as: :user_activate
-  get 'sign-in', to: 'users#signin', as: :signin
+  get 'signin', to: 'users#signin', as: :signin
   post 'user/auth', to: 'users#auth', as: :user_auth
 
   get 'panel', to: 'backend#index', as: :backend
