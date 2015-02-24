@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def signin
+    redirect_to backend_path if session[:user_id]
   end
 
   def auth
