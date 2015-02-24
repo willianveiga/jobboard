@@ -1,11 +1,8 @@
 class BackendController < ApplicationController
-  before_filter :redirect_if_user_not_logged_in
+  include Loggable
 
   def index
-  end
-
-  private
-  def redirect_if_user_not_logged_in
-    redirect_to signin_path unless session[:user_id]
+    user = User.find session[:user_id]
+    redirect_to company_profile_path unless user.company
   end
 end
