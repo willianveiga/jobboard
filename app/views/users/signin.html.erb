@@ -2,7 +2,7 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 <%= form_tag user_auth_path, method: 'post' do %>
-  <%= label_tag :name %>
+  <%= label_tag :name, 'Username' %>
   <%= text_field_tag :name, nil, autofocus: true %>
   <%= label_tag :password %>
   <%= password_field_tag :password %>
