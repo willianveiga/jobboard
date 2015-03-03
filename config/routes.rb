@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'panel', to: 'backend#index', as: :backend
 
   get 'panel/company/profile', to: 'companies#profile', as: :company_profile
+  match 'panel/company/save' => 'companies#save', as: :company_save, via: [:post, :patch]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
