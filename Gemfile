@@ -40,6 +40,8 @@ gem 'recaptcha', :require => 'recaptcha/rails'
 
 gem 'validates_email_format_of'
 
+gem 'validate_url'
+
 gem 'random_token'
 
 group :development, :test do
