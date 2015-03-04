@@ -1,13 +1,17 @@
 <%= render 'backend/shared/menu' %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Brief Description</th>
-  </tr>
-  <% @jobs.each do |job| %>
+<% if not @jobs.empty? %>
+  <table>
     <tr>
-      <td><%= job.title %></td>
-      <td><%= job.brief_description %></td>
+      <th>Title</th>
+      <th>Brief Description</th>
     </tr>
-  <% end %>
-</table>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><%= job.brief_description %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>You don't have any job.</p>
+<% end %>
