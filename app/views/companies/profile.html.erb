@@ -1,2 +1,5 @@
+<% if not @company.new_record? %>
+  <%= render 'backend/shared/menu' %>
+<% end %>
 <p>Company Profile</p>
 <%= render 'form' %>
